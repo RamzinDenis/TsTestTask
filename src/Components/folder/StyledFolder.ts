@@ -10,6 +10,4 @@ export const StyledFolder = styled.div`
 	}
 `;
 
-export const StyledFolderContainer = styled.div`
-	margin-right: 50px;
-`;
+export const StyledFolderContainer = styled.div``;

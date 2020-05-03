@@ -2,19 +2,28 @@ import React from "react";
 import { StyledSearchBar, AgeInput, ButtonsContainer } from "./StyledSearchBar";
 import { Form, Input, Checkbox, Button, Typography, InputNumber } from "antd";
 import { connect } from "react-redux";
-import { searchUsers } from "../../redux/actions";
+import { searchUsers, clearSelectedUsers } from "../../redux/actions";
 
 type SearchBarProps = {
 	searchUsers: Function;
 	inputRef: React.Ref<object>;
+	clearSelectedUsers: Function;
 };
 
-const SearchBar: React.FC<SearchBarProps> = ({ searchUsers, inputRef }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+	searchUsers,
+	inputRef,
+	clearSelectedUsers,
+}) => {
 	const [form] = Form.useForm();
 
 	const handleSubmit = (values: {}) => {
 		searchUsers(values);
 		form.resetFields();
+	};
+	const resetValuesAndUsers = () => {
+		form.resetFields();
+		clearSelectedUsers();
 	};
 	return (
 		<StyledSearchBar>
@@ -59,11 +68,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchUsers, inputRef }) => {
 				</AgeInput>
 				<ButtonsContainer>
 					<Button htmlType="submit">Поиск</Button>
-					<Button onClick={() => form.resetFields()}>Очистить</Button>
+					<Button onClick={resetValuesAndUsers}>Очистить</Button>
 				</ButtonsContainer>
 			</Form>
 		</StyledSearchBar>
 	);
 };
 
-export default connect(null, { searchUsers })(SearchBar);
+export default connect(null, { searchUsers, clearSelectedUsers })(SearchBar);

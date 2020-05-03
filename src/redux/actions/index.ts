@@ -15,6 +15,7 @@ import {
 	UPDATE_USER_PROFILE,
 	LOAD_LISTS,
 	LOAD_SELECTED_FILE,
+	CLEAR_SELECTED_USERS,
 } from "../constans";
 
 import { ListData, UserData } from "../../fixtures";
@@ -90,7 +91,6 @@ export const loadSelectedFile = (id: string) => async (
 		type: LOAD_SELECTED_FILE + REQUEST,
 	});
 	try {
-		console.log(`file${id}`);
 		const response: {}[] = await (await fetch(`file${id}.json`)).json();
 		dispatch({
 			type: LOAD_SELECTED_FILE + SUCCESS,
@@ -103,3 +103,7 @@ export const loadSelectedFile = (id: string) => async (
 		});
 	}
 };
+
+export const clearSelectedUsers = () => ({
+	type: CLEAR_SELECTED_USERS,
+});
