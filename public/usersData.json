@@ -1,0 +1,232 @@
+[
+	{
+		"id": 1,
+		"name": "Артур Каспа",
+		"username": "Hasxv",
+		"email": "Sincere@april.biz",
+		"gender": "мужской",
+		"age": 24,
+		"married": false,
+		"haveChildren": false,
+		"city": "Симферополь",
+		"address": {
+			"street": "Разумовская",
+			"strN": "66",
+			"zipcode": "92998-3874"
+		},
+		"phone": "1-770-736-8031 x56442",
+		"website": "hildegard.org",
+		"company": {
+			"name": "Mirаnda",
+			"catchPhrase": "Multi-layered client-server neural-net",
+			"bs": "harness real-time e-markets"
+		}
+	},
+	{
+		"id": 2,
+		"name": "Иван Дейто",
+		"username": "Vanya",
+		"email": "Shanna@melissa.tv",
+		"gender": "мужской",
+		"age": 30,
+		"married": true,
+		"haveChildren": 2,
+		"city": "Симферополь",
+		"address": {
+			"street": "Бородина",
+			"strN": "55",
+			"zipcode": "90566-7771"
+		},
+		"phone": "010-692-6593 x09125",
+		"website": "anastasia.net",
+		"company": {
+			"name": "Bank",
+			"catchPhrase": "Proactive didactic contingency",
+			"bs": "synergize scalable supply-chains"
+		}
+	},
+	{
+		"id": 3,
+		"name": "Галина Шатхина",
+		"username": "Galy55123a",
+		"email": "Nathan@yesenia.net",
+		"gender": "женский",
+		"age": 15,
+		"married": false,
+		"haveChildren": false,
+		"city": "Севастополь",
+		"address": {
+			"street": "Угрюмовская",
+			"strN": "23",
+			"zipcode": "59590-4157"
+		},
+		"phone": "1-463-123-4447",
+		"website": "ramiro.info",
+		"company": {
+			"name": "Romaguera-Jacobson",
+			"catchPhrase": "Face to face bifurcated interface",
+			"bs": "e-enable strategic applications"
+		}
+	},
+	{
+		"id": 4,
+		"name": "Илья Биньков",
+		"username": "Lya412",
+		"email": "Julianne.OConner@kory.org",
+		"gender": "мужской",
+		"age": 42,
+		"married": false,
+		"haveChildren": 1,
+		"city": "Ялта",
+		"address": {
+			"street": "Hoeger Mall",
+			"strN": "Apt. 692",
+			"zipcode": "53919-4257"
+		},
+		"phone": "493-170-9623 x156",
+		"website": "kale.biz",
+		"company": {
+			"name": "Robel-Corkery",
+			"catchPhrase": "Multi-tiered zero tolerance productivity",
+			"bs": "transition cutting-edge web services"
+		}
+	},
+	{
+		"id": 5,
+		"name": "Анна Петровна",
+		"username": "Annita123z",
+		"email": "Lucio_Hettinger@annie.ca",
+		"gender": "женский",
+		"age": 70,
+		"married": true,
+		"haveChildren": 5,
+		"city": "Севастополь",
+		"address": {
+			"street": "Пешеходная",
+			"strN": "103",
+			"zipcode": "33263"
+		},
+		"phone": "(254)954-1289",
+		"website": "demarco.info",
+		"company": {
+			"name": "Keebler LLC",
+			"catchPhrase": "User-centric fault-tolerant solution",
+			"bs": "revolutionize end-to-end systems"
+		}
+	},
+	{
+		"id": 6,
+		"name": "Олег Грылько",
+		"username": "Leopoldo_Corkery",
+		"email": "Karley_Dach@jasper.info",
+		"gender": "мужской",
+		"age": 45,
+		"married": false,
+		"haveChildren": 6,
+		"city": "Ялта",
+		"address": {
+			"street": "Набережная",
+			"strN": "47",
+			"zipcode": "23505-1337"
+		},
+		"phone": "1-477-935-8478 x6430",
+		"website": "ola.org",
+		"company": {
+			"name": "Considine-Lockman",
+			"catchPhrase": "Synchronised bottom-line interface",
+			"bs": "e-enable innovative applications"
+		}
+	},
+	{
+		"id": 7,
+		"name": "Инна Димкина",
+		"username": "Elwyn.Skiles",
+		"email": "Telly.Hoeger@billy.biz",
+		"gender": "женский",
+		"age": 55,
+		"married": false,
+		"haveChildren": 3,
+		"city": "Керчь",
+		"address": {
+			"street": "Нагиева",
+			"strN": "55",
+			"zipcode": "58804-1099"
+		},
+		"phone": "210.067.6132",
+		"website": "elvis.io",
+		"company": {
+			"name": "Johns Group",
+			"catchPhrase": "Configurable multimedia task-force",
+			"bs": "generate enterprise e-tailers"
+		}
+	},
+	{
+		"id": 8,
+		"name": "Николай Бетеня",
+		"username": "Maxime_Nienow",
+		"email": "Sherwood@rosamond.me",
+		"gender": "мужской",
+		"age": 19,
+		"married": false,
+		"haveChildren": false,
+		"city": "Керчь",
+		"address": {
+			"street": "Караимова",
+			"strN": "33",
+			"zipcode": "45169"
+		},
+		"phone": "586.493.6943 x140",
+		"website": "jacynthe.com",
+		"company": {
+			"name": "Abernathy Group",
+			"catchPhrase": "Implemented secondary concept",
+			"bs": "e-enable extensible e-tailers"
+		}
+	},
+	{
+		"id": 9,
+		"name": "Елена Павлова",
+		"username": "Delphine",
+		"gender": "женский",
+		"age": 40,
+		"married": true,
+		"haveChildren": 2,
+		"email": "Chaim_McDermott@dana.io",
+		"city": "Севастополь",
+		"address": {
+			"street": "Победы героев",
+			"strN": "449",
+			"zipcode": "76495-3109"
+		},
+		"phone": "(775)976-6794 x41206",
+		"website": "conrad.com",
+		"company": {
+			"name": "Yost and Sons",
+			"catchPhrase": "Switchable contextually-based project",
+			"bs": "aggregate real-time technologies"
+		}
+	},
+	{
+		"id": 10,
+		"name": "Авгак Авгапов",
+		"gender": "мужской",
+		"age": 28,
+		"married": true,
+		"haveChildren": false,
+		"username": "Moriah.Stanton",
+		"email": "Rey.Padberg@karina.biz",
+		"city": "Симферополь",
+		"address": {
+			"street": "Kattie Turnpike",
+			"strN": "Suite 198",
+			"zipcode": "31428-2261"
+		},
+		"phone": "024-648-3804",
+		"website": "ambrose.net",
+		"company": {
+			"name": "Hoeger LLC",
+			"catchPhrase": "Centralized empowering task-force",
+			"bs": "target end-to-end models"
+		}
+	}
+]

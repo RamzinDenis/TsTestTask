@@ -5,5 +5,18 @@ export const StyledNavBar = styled.nav`
 	border: 2px solid #1c1c1c;
 	border-right: none;
 	border-bottom: none;
-	padding-left: 10px;
+	padding: 10px 10px;
+	font-family: "Inter", sans-serif;
+
+	.link {
+		font-size: 20px;
+		font-weight: 500;
+		margin-bottom: 4px;
+	}
+	h3 {
+		font-weight: 500;
+	}
+	button {
+		margin-bottom: 2px;
+	}
 `;

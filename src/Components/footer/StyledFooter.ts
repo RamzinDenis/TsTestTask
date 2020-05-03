@@ -7,4 +7,9 @@ export const StyledFooter = styled.footer`
 	border: 2px solid #1c1c1c;
 	border-collapse: collapse;
 	height: 100px;
+	margin-bottom: 20px;
+	span {
+		margin-right: 10px;
+		font-size: 20px;
+	}
 `;

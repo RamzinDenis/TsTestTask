@@ -1,5 +1,6 @@
+@import "~antd/dist/antd.css";
 body {
-	margin: 0 10px;
+	padding: 0px 20px;
 }
 
 code {
@@ -10,8 +11,28 @@ code {
 .logo {
 	height: 50px;
 	width: 100px;
+	margin-top: 5px;
 }
 
 h3 {
 	margin: 0;
+}
+
+a {
+	color: black;
+}
+
+.modal__text {
+	font-family: "IBM Plex Serif", serif;
+	font-size: 16px;
+}
+
+.modal__description {
+	font-style: cursive;
+}
+
+.modal__title {
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+	font-size: 20px;
 }
