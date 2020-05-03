@@ -4,8 +4,6 @@ import { Modal } from "antd";
 import { connect, RootStateOrAny } from "react-redux";
 import { getSelectedUserById } from "../../redux/selectors";
 
-// Пофиксить
-
 interface Props extends React.Props<any> {
 	id: string | null;
 	setVisible: React.SetStateAction<Function>;
@@ -14,7 +12,6 @@ interface Props extends React.Props<any> {
 
 const UserModal: React.FC<any> = ({ visible, setVisible, user }) => {
 	if (!visible) return null;
-	console.log(user);
 	const handleModal = () => setVisible!((prevState: boolean) => false);
 	return (
 		<StyledUserModal>

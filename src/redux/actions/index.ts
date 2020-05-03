@@ -17,7 +17,7 @@ import {
 	LOAD_SELECTED_FILE,
 } from "../constans";
 
-import { ListData } from "../../fixtures";
+import { ListData, UserData } from "../../fixtures";
 
 type DispatchTypes = (action: UserActionType<object | string>) => void;
 
@@ -65,9 +65,7 @@ export const searchUsers = (search: searchDataTypes) => (
 	});
 };
 
-// И тут пофиксить тоже вечером
-
-export const updateUserProfile = (user: { [key: string]: any }) => (
+export const updateUserProfile = (user: UserData) => (
 	dispatch: DispatchTypes
 ) => {
 	dispatch({

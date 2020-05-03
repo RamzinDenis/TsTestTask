@@ -1,8 +1,9 @@
 import React, { MouseEvent } from "react";
 import { StyledListItem, ListBody, ListTitle } from "./StyledListItem";
 import { RouteProps } from "react-router-dom";
+import ListItemContainer from "./ListItemContainer";
 
-interface Props {
+export interface Props {
 	list: {
 		title: string;
 		text: string;
@@ -12,29 +13,18 @@ interface Props {
 	setCurrentItem: React.SetStateAction<Function>;
 	history: any | RouteProps;
 	match: RouteProps;
+	handleMouseOut?: () => void;
+	handleMouseOver?: () => void;
+	handleDblClick?: () => void;
 }
-// Возможно контейнер
 const ListItem: React.FC<Props> = ({
 	list,
 	name,
-	setCurrentItem,
-	history,
-	match,
+	handleMouseOut,
+	handleMouseOver,
+	handleDblClick,
 }) => {
 	const { title, text, id } = list;
-	const handleMouseOver = (event: MouseEvent) => {
-		setCurrentItem((prev: number) => id);
-	};
-	const handleMouseOut = (event: MouseEvent) => {
-		setCurrentItem((prev: number) => {
-			if (!prev) return;
-			return 0;
-		});
-	};
-	const handleDblClick = (event: MouseEvent) => {
-		event.preventDefault();
-		history.push(`${match.path}/${id}`);
-	};
 
 	return (
 		<StyledListItem
@@ -49,4 +39,4 @@ const ListItem: React.FC<Props> = ({
 	);
 };
 
-export default ListItem;
+export default ListItemContainer(ListItem as React.FC);

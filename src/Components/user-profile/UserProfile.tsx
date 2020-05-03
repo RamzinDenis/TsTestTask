@@ -6,16 +6,13 @@ import { StoreType } from "../../redux/types";
 import { getUserById } from "../../redux/selectors";
 import UserDescription from "./user-descriptions";
 import { CloseOutlined } from "@ant-design/icons";
-
-// и тут пофкиксить
+import { UserData } from "../../fixtures";
 
 interface Props extends RouteComponentProps {
-	user?: { [key: string]: any };
+	user: UserData;
 }
-// исправить
 const UserProfile: React.FC<Props> = ({ match, user }) => {
 	if (!user) return <Redirect to={`/Таблицы`} />;
-	console.log(user);
 
 	return (
 		<StyledUserProfile>

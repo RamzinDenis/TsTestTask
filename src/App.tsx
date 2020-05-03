@@ -9,7 +9,7 @@ const App: React.FC = () => {
 		<AppContainer>
 			<Header />
 			<Main />
-			<Footer>Footer</Footer>
+			<Footer />
 		</AppContainer>
 	);
 };

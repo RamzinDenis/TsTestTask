@@ -6,26 +6,24 @@ import UserAddress from "../user-address";
 import UserCompany from "../user-company";
 import { connect } from "react-redux";
 import { updateUserProfile } from "../../../redux/actions";
+import { UserData } from "../../../fixtures";
+import UserDescriptionContainer from "./UserDescriptionContainer";
 
-// и тут пофиксить
-
-interface Props {
-	user: { [key: string]: any };
+export interface Props {
+	user: UserData;
 	updateUserProfile: Function;
+	state?: UserData;
+	setState?: React.Dispatch<React.SetStateAction<UserData>>;
+	handleChange?: (value: string, propertyName: string) => void;
 }
 
-const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
-	const { Paragraph, Text } = Typography;
-	const [state, setState] = useState(user);
-	const handleChange = (value: string, propertyName: string) => {
-		setState({
-			...state,
-			[propertyName]: value,
-		});
-	};
-	useEffect(() => {
-		updateUserProfile(state);
-	}, [state]);
+const UserDescription: React.FC<Props> = ({
+	state,
+	setState,
+	handleChange,
+}) => {
+	const { Paragraph } = Typography;
+
 	const {
 		name,
 		phone,
@@ -39,7 +37,7 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 		website,
 		username,
 		company,
-	} = state;
+	} = state!;
 	return (
 		<>
 			<Descriptions
@@ -53,7 +51,7 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 				<Descriptions.Item label={<StyledUserTitle>ФИО</StyledUserTitle>}>
 					<Paragraph
 						strong
-						editable={{ onChange: value => handleChange(value, "name") }}
+						editable={{ onChange: value => handleChange!(value, "name") }}
 					>
 						{name}
 					</Paragraph>
@@ -61,7 +59,7 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 				<Descriptions.Item label={<StyledUserTitle>Телефон</StyledUserTitle>}>
 					<Paragraph
 						strong
-						editable={{ onChange: value => handleChange(value, "phone") }}
+						editable={{ onChange: value => handleChange!(value, "phone") }}
 					>
 						{phone}
 					</Paragraph>
@@ -69,7 +67,7 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 				<Descriptions.Item label={<StyledUserTitle>Город</StyledUserTitle>}>
 					<Paragraph
 						strong
-						editable={{ onChange: value => handleChange(value, "city") }}
+						editable={{ onChange: value => handleChange!(value, "city") }}
 					>
 						{city}
 					</Paragraph>
@@ -77,20 +75,25 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 				<Descriptions.Item label={<StyledUserTitle>Пол</StyledUserTitle>}>
 					<Paragraph
 						strong
-						editable={{ onChange: value => handleChange(value, "gender") }}
+						editable={{ onChange: value => handleChange!(value, "gender") }}
 					>
 						{gender}
 					</Paragraph>
 				</Descriptions.Item>
 				<Descriptions.Item label={<StyledUserTitle>Адрес</StyledUserTitle>}>
-					<UserAddress address={address} setState={setState} />
+					<UserAddress
+						address={address}
+						setState={
+							setState as React.Dispatch<React.SetStateAction<UserData>>
+						}
+					/>
 				</Descriptions.Item>
 				<Descriptions.Item
 					label={<StyledUserTitle>Электронная почта</StyledUserTitle>}
 				>
 					<Paragraph
 						strong
-						editable={{ onChange: value => handleChange(value, "email") }}
+						editable={{ onChange: value => handleChange!(value, "email") }}
 					>
 						{email}
 					</Paragraph>
@@ -118,12 +121,17 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 					</StyledUserWrapper>
 				</Descriptions.Item>
 				<Descriptions.Item label={<StyledUserTitle>Компания</StyledUserTitle>}>
-					<UserCompany setState={setState} company={company} />
+					<UserCompany
+						setState={
+							setState as React.Dispatch<React.SetStateAction<UserData>>
+						}
+						company={company}
+					/>
 				</Descriptions.Item>
 				<Descriptions.Item label={<StyledUserTitle>Возраст</StyledUserTitle>}>
 					<Paragraph
 						strong
-						editable={{ onChange: value => handleChange(value, "age") }}
+						editable={{ onChange: value => handleChange!(value, "age") }}
 					>
 						{age}
 					</Paragraph>
@@ -134,7 +142,7 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 				>
 					<Paragraph
 						strong
-						editable={{ onChange: value => handleChange(value, "username") }}
+						editable={{ onChange: value => handleChange!(value, "username") }}
 					>
 						{username}
 					</Paragraph>
@@ -142,7 +150,7 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 				<Descriptions.Item label={<StyledUserTitle>Веб-сайт</StyledUserTitle>}>
 					<Paragraph
 						strong
-						editable={{ onChange: value => handleChange(value, "website") }}
+						editable={{ onChange: value => handleChange!(value, "website") }}
 					>
 						{website}
 					</Paragraph>
@@ -152,4 +160,6 @@ const UserDescription: React.FC<Props> = ({ user, updateUserProfile }) => {
 	);
 };
 
-export default connect(null, { updateUserProfile })(UserDescription);
+export default connect(null, { updateUserProfile })(
+	UserDescriptionContainer(UserDescription as React.FC)
+);

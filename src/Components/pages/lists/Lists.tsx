@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { StyledLists } from "./StyledLists";
 import List from "../../list";
-import { listData, ListData } from "../../../fixtures";
+import { listData } from "../../../fixtures";
 import { loadLists } from "../../../redux/actions";
 import { connect } from "react-redux";
 
@@ -11,7 +11,7 @@ interface Props {
 
 const Lists: React.FC<Props> = ({ loadLists }) => {
 	useEffect(() => {
-		loadLists(listData);
+		loadLists(listData); // eslint-disable-next-line
 	}, []);
 	return (
 		<StyledLists>

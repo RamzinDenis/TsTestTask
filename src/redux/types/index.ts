@@ -1,13 +1,12 @@
-import { ListData, FolderData } from "../../fixtures";
+import { ListData, FolderData, UserData } from "../../fixtures";
 
 export interface UserActionType<T> {
 	type: string;
 	payload: T;
 }
-// Исправить
 
 export interface UserState {
-	entities: { [key: string]: any }[] | any;
+	entities: UserData[];
 	selectedUsers: string[];
 	isLoading: boolean;
 	isLoaded: boolean;
@@ -28,13 +27,11 @@ export interface FilesAction {
 
 export type FilesDispatch = (action: FilesAction) => void;
 
-// и тут тоже пофиксить !!
-
 export interface PayloadType<T, R> {
 	response?: T;
 	error?: string;
 	search?: R;
-	user?: { [key: string]: any };
+	user?: UserData;
 }
 
 export interface searchDataTypes {

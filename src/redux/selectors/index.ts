@@ -1,20 +1,18 @@
-import { StoreType, UserState, FilesState } from "../types";
+import { StoreType, FilesState } from "../types";
 import { createSelector } from "reselect";
-import { TableData, ListData } from "../../fixtures";
+import { ListData, UserData } from "../../fixtures";
 
-export const getUsers = (state: StoreType) => state.users.entities;
+export const getUsers = (state: StoreType) =>
+	state.users.entities as UserData[];
 export const getSelectedUsers = (state: StoreType) => state.users.selectedUsers;
 export const getProps = (_: any, ownProps: any) => ownProps;
 export const getLists = (state: StoreType) => state.lists.entities;
 const getFiles = (state: StoreType) => state.files;
-// исправить any потом
 
 export const getSelectedUsersList = createSelector(
 	[getSelectedUsers, getUsers],
 	(SelectedUsers, users) =>
-		SelectedUsers.map((item: string) =>
-			users.find((user: { [key: string]: any }) => user.id === item)
-		)
+		SelectedUsers.map((item: string) => users.find(user => user.id === item))
 );
 
 export const getSelectedUsersShortData = createSelector(
@@ -43,20 +41,17 @@ export const getSelectedUsersShortData = createSelector(
 		)
 );
 
-// Исправить + нейминг
-
 export const getUserById = createSelector(
 	getUsers,
 	getProps,
-	(users: { [key: string]: any }[], props: any) =>
+	(users, props: any) =>
 		users.find(user => user.id == props.match.params.userId)
 );
 
 export const getSelectedUserById = createSelector(
 	getUsers,
 	getProps,
-	(users: { [key: string]: any }[], props: any) =>
-		users.find(user => user.id == props.id)
+	(users, props: any) => users.find(user => user.id == props.id)
 );
 
 export const getListsByHistoryId = createSelector(

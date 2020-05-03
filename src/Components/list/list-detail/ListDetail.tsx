@@ -11,8 +11,6 @@ interface Props extends RouteComponentProps {
 	list: ListData;
 }
 
-// Это в utils запихнуть
-
 const ListDetail: React.FC<Props> = ({ list }) => {
 	if (!list) return <Redirect to="/Список" />;
 	const date = new Date();

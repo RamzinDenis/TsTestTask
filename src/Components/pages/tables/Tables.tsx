@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createRef } from "react";
+import React from "react";
 import { StyledTables } from "./StyledTables";
 import { Table } from "antd";
 import { columns, TableData } from "../../../fixtures";
@@ -9,29 +9,29 @@ import { StoreType } from "../../../redux/types";
 import { getSelectedUsersShortData } from "../../../redux/selectors";
 import { RouteComponentProps } from "react-router-dom";
 import ModalWindow from "../../user-modal";
+import TableContainer from "./TableContainer";
 
 interface TablesProps extends RouteComponentProps {
 	loadUsers: () => Promise<any>;
 	data: TableData[];
+	searchBarRef: React.Ref<any>;
+	visible: boolean;
+	setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+	handleKeyAction: (event: KeyboardEvent) => void;
+	selectedRow: string;
+	setSelectedRow: React.Dispatch<React.SetStateAction<string>>;
 }
 
-// Тут спрятать логику
-
-const Tables: React.FC<TablesProps> = ({ loadUsers, data, history }) => {
-	const searchBarRef = createRef() as any;
-	const [selectedRow, SetselectedRow] = useState("");
-	const [visible, setVisible] = useState(false);
-	const handleKeyAction = (event: KeyboardEvent) => {
-		if (event.key === "F9" && selectedRow) {
-			history.push(`Пользователи/${selectedRow}`);
-		} else if (event.key === "F4" && selectedRow) {
-			setVisible(true);
-		}
-	};
-	useEffect((): void => {
-		loadUsers();
-		searchBarRef.current?.focus();
-	}, [searchBarRef]);
+const Tables: React.FC<TablesProps> = ({
+	data,
+	history,
+	setVisible,
+	handleKeyAction,
+	searchBarRef,
+	visible,
+	selectedRow,
+	setSelectedRow,
+}) => {
 	return (
 		<StyledTables onKeyDown={(event: any): void => handleKeyAction(event)}>
 			<SearchBar inputRef={searchBarRef} />
@@ -47,9 +47,8 @@ const Tables: React.FC<TablesProps> = ({ loadUsers, data, history }) => {
 						history.push(`Пользователи/${record.id}`);
 					},
 					onMouseOver: () => {
-						SetselectedRow(record.id);
+						setSelectedRow(record.id);
 					},
-					// onMouseOut: () => SetselectedRow(""),
 				})}
 			/>
 
@@ -65,4 +64,4 @@ export default connect(
 	{
 		loadUsers,
 	}
-)(Tables as React.FC);
+)(TableContainer(Tables as React.FC));

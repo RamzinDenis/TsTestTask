@@ -5,6 +5,7 @@ import {
 	searchDataTypes,
 } from "../types";
 import { filterBy, filterByBooleanValue, filterByAge } from "../utils";
+import { UserData } from "../../fixtures";
 import {
 	LOAD_USERS,
 	REQUEST,
@@ -25,7 +26,7 @@ const initialState: UserState = {
 export const userReducer = (
 	state = initialState,
 	action: UserActionType<PayloadType<{}[], searchDataTypes>>
-): UserState => {
+) => {
 	const { type, payload } = action;
 	switch (type) {
 		case LOAD_USERS + REQUEST:
@@ -70,11 +71,11 @@ export const userReducer = (
 				selectedUsers: filteredByAge!.map(
 					(item: { [key: string]: any }) => item.id
 				),
-			}; // и тут тоже пофиксить
+			};
 		case UPDATE_USER_PROFILE:
 			return {
 				...state,
-				entities: state.entities.map((item: { [key: string]: any }) =>
+				entities: state.entities.map(item =>
 					item.id === payload.user!.id ? payload.user : item
 				),
 			};

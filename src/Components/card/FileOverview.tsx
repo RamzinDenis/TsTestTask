@@ -4,6 +4,7 @@ import { StyledCardData, StyledError } from "./StyledFileOverview";
 import { getSelectedFileOrError } from "../../redux/selectors";
 import { StoreType } from "../../redux/types";
 import { Card } from "antd";
+
 interface Props {
 	fileData: { [key: string]: any };
 }
@@ -31,7 +32,10 @@ const CardData: React.FC<Props> = ({ fileData }) => {
 			<h2>{fileData.title}</h2>
 			<Card>
 				{fileData.content?.map((data: string[], index: number) => (
-					<Card.Grid style={gridStyle as any} key={index}>
+					<Card.Grid
+						style={gridStyle as React.StyleHTMLAttributes<object>}
+						key={index}
+					>
 						{data}
 					</Card.Grid>
 				))}

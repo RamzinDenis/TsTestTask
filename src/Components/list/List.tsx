@@ -1,40 +1,35 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { StyledListContainer } from "./StyledListContainer";
 import ListItem from "./list-item";
-import { listData, ListData } from "../../fixtures";
+import { ListData } from "../../fixtures";
 import { withRouter, RouteComponentProps } from "react-router-dom";
+import ListContainer from "./ListContainer";
 
-// и тут тоже отрефакторить контейнер
-
-interface Props extends RouteComponentProps {
+export interface Props extends RouteComponentProps {
 	lists: ListData[];
+	containerRef?: React.MutableRefObject<any>;
+	currentItem?: number;
+	setCurrentItem?: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const List: React.FC<Props> = ({ history, match }) => {
-	const [currentItem, setCurrentItem] = useState(0);
-	const handleKeyDown = (event: KeyboardEvent) => {
-		if (event.key === "ArrowDown") {
-			if (currentItem > listData.length) return setCurrentItem(1);
-			setCurrentItem(currentItem + 1);
-		} else if (event.key === "ArrowUp") {
-			if (currentItem < 0) return setCurrentItem(listData.length);
-			setCurrentItem(currentItem - 1);
-		} else if (event.key === "Enter" && currentItem) {
-			history.push(`${match.path}/${currentItem}`);
-		}
-	};
-	useEffect(() => {
-		window.addEventListener("keydown", handleKeyDown);
-		return () => window.removeEventListener("keydown", handleKeyDown);
-	});
+const List: React.FC<Props> = ({
+	history,
+	match,
+	containerRef,
+	currentItem,
+	setCurrentItem,
+	lists,
+}) => {
 	return (
-		<StyledListContainer>
-			{listData.map(list => (
+		<StyledListContainer tabIndex={0} ref={containerRef}>
+			{lists!.map(list => (
 				<ListItem
 					list={list}
 					key={list.id}
 					name={list.id === currentItem ? "active" : ""}
-					setCurrentItem={setCurrentItem}
+					setCurrentItem={
+						setCurrentItem as React.Dispatch<React.SetStateAction<number>>
+					}
 					history={history}
 					match={match}
 				/>
@@ -43,4 +38,4 @@ const List: React.FC<Props> = ({ history, match }) => {
 	);
 };
 
-export default withRouter(List);
+export default withRouter(ListContainer(List as React.FC<Props>));

@@ -104,12 +104,31 @@ export type TableData = {
 	id: string;
 	name: string;
 	age: number;
-	company: string;
+	company: {
+		name: string;
+		catchPhrase: string;
+	};
 	city: string;
 	phone: number;
 	haveChildren: number;
 	married: boolean;
 };
+
+export interface UserData extends TableData {
+	address: {
+		street: string;
+		strN: string;
+		zipcode: string;
+	};
+	company: {
+		name: string;
+		catchPhrase: string;
+	};
+	gender: string;
+	website: string;
+	username: string;
+	email: string;
+}
 
 export type ListData = {
 	title: string;
