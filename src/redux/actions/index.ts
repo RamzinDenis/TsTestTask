@@ -15,7 +15,6 @@ import {
 	UPDATE_USER_PROFILE,
 	LOAD_LISTS,
 	LOAD_SELECTED_FILE,
-	CLEAR_SELECTED_USERS,
 } from "../constans";
 
 import { ListData, UserData } from "../../fixtures";
@@ -103,7 +102,3 @@ export const loadSelectedFile = (id: string) => async (
 		});
 	}
 };
-
-export const clearSelectedUsers = () => ({
-	type: CLEAR_SELECTED_USERS,
-});

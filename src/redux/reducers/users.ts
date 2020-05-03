@@ -12,7 +12,6 @@ import {
 	FAILURE,
 	SEARCH_USERS,
 	UPDATE_USER_PROFILE,
-	CLEAR_SELECTED_USERS,
 } from "../constans";
 
 const initialState: UserState = {
@@ -54,17 +53,8 @@ export const userReducer = (
 			};
 		case SEARCH_USERS:
 			const { city, haveChildren, married, ageFrom, ageTo } = payload.search!;
-			let initialDataArray;
-			if (state.selectedUsers.length) {
-				initialDataArray = state.selectedUsers.map(item =>
-					state.entities.find(user => +user.id === +item)
-				);
-			}
-			const filteredByCity: {}[] | [] = filterBy(
-				city,
-				"city",
-				(initialDataArray as any) || state.entities
-			);
+
+			const filteredByCity: {}[] | [] = filterBy(city, "city", state.entities);
 			const filteredByChildren: typeof filteredByCity = filterByBooleanValue(
 				haveChildren,
 				"haveChildren",
@@ -89,11 +79,7 @@ export const userReducer = (
 					item.id === payload.user!.id ? payload.user : item
 				),
 			};
-		case CLEAR_SELECTED_USERS:
-			return {
-				...state,
-				selectedUsers: [],
-			};
+
 		default:
 			return state;
 	}
