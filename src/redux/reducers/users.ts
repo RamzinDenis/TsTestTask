@@ -5,7 +5,6 @@ import {
 	searchDataTypes,
 } from "../types";
 import { filterBy, filterByBooleanValue, filterByAge } from "../utils";
-import { UserData } from "../../fixtures";
 import {
 	LOAD_USERS,
 	REQUEST,

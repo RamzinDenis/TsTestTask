@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { StyledFiles, DirectoryWrapper } from "./StyledFiles";
 import Folder from "../../folder";
 import { folderData } from "../../../fixtures";

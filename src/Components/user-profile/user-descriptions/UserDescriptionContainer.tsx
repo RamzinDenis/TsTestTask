@@ -11,7 +11,7 @@ export default (WrappedComponent: React.FC) => {
 			});
 		};
 		useEffect(() => {
-			props.updateUserProfile(state);
+			props.updateUserProfile(state); // eslint-disable-next-line
 		}, [state]);
 		const newProps = { state, setState, handleChange };
 		return <WrappedComponent {...props} {...newProps} />;

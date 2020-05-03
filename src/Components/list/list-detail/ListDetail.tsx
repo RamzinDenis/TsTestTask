@@ -21,6 +21,7 @@ const ListDetail: React.FC<Props> = ({ list }) => {
 	const day =
 		date.getDate().toString.length > 1 ? date.getDate() : "0" + date.getDate();
 	const year = date.getFullYear();
+
 	return (
 		<StyledListDetail>
 			<Typography.Title level={3}>{list.title}</Typography.Title>

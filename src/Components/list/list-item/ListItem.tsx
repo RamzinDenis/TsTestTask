@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import { StyledListItem, ListBody, ListTitle } from "./StyledListItem";
 import { RouteProps } from "react-router-dom";
 import ListItemContainer from "./ListItemContainer";
@@ -24,7 +24,7 @@ const ListItem: React.FC<Props> = ({
 	handleMouseOver,
 	handleDblClick,
 }) => {
-	const { title, text, id } = list;
+	const { title, text } = list;
 
 	return (
 		<StyledListItem

@@ -45,13 +45,13 @@ export const getUserById = createSelector(
 	getUsers,
 	getProps,
 	(users, props: any) =>
-		users.find(user => user.id == props.match.params.userId)
+		users.find(user => +user.id === +props.match.params.userId)
 );
 
 export const getSelectedUserById = createSelector(
 	getUsers,
 	getProps,
-	(users, props: any) => users.find(user => user.id == props.id)
+	(users, props: any) => users.find(user => user.id === props.id)
 );
 
 export const getListsByHistoryId = createSelector(

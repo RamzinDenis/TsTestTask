@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Descriptions, Typography } from "antd";
 import { CloseSquareOutlined, CheckSquareOutlined } from "@ant-design/icons";
 import { StyledUserTitle, StyledUserWrapper, Center } from "./StyledUserTitle";

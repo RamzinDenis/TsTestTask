@@ -13,7 +13,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchUsers, inputRef }) => {
 	const [form] = Form.useForm();
 
 	const handleSubmit = (values: {}) => {
-		console.log(values);
 		searchUsers(values);
 		form.resetFields();
 	};
