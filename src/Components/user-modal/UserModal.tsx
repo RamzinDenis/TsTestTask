@@ -32,7 +32,7 @@ const UserModal: React.FC<any> = ({ visible, setVisible, user }) => {
 					<strong> {user.age}</strong>
 					<br />
 					<span className="modal__description">
-						Дабл клик или F8 по выбранной строке для более детальной информации
+						Дабл клик или F9 по выбранной строке для более детальной информации
 					</span>
 				</span>
 			</Modal>
