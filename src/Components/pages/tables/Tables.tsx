@@ -21,6 +21,7 @@ interface TablesProps extends RouteComponentProps {
 	selectedRow: string;
 	setSelectedRow: React.Dispatch<React.SetStateAction<number>>;
 	setId: React.Dispatch<React.SetStateAction<number>>;
+	currentId: number;
 }
 
 const Tables: React.FC<TablesProps> = ({
@@ -33,6 +34,7 @@ const Tables: React.FC<TablesProps> = ({
 	selectedRow,
 	setSelectedRow,
 	setId,
+	currentId,
 }) => {
 	return (
 		<StyledTables onKeyDown={(event: any): void => handleKeyAction(event)}>
@@ -64,7 +66,11 @@ const Tables: React.FC<TablesProps> = ({
 				})}
 			/>
 
-			<ModalWindow id={selectedRow} visible={visible} setVisible={setVisible} />
+			<ModalWindow
+				id={currentId as number}
+				visible={visible}
+				setVisible={setVisible}
+			/>
 		</StyledTables>
 	);
 };

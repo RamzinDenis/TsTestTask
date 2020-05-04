@@ -5,7 +5,7 @@ import { connect, RootStateOrAny } from "react-redux";
 import { getSelectedUserById } from "../../redux/selectors";
 
 interface Props extends React.Props<any> {
-	id: string | null;
+	id: number;
 	setVisible: React.SetStateAction<Function>;
 	visible: boolean;
 }
