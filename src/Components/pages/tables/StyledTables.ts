@@ -20,4 +20,7 @@ export const StyledTables = styled.div`
 	.active {
 		background-color: #fafafa;
 	}
+	.ant-table-tbody tr.ant-table-row:hover td {
+		background: none;
+	}
 `;

@@ -19,7 +19,8 @@ interface TablesProps extends RouteComponentProps {
 	setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 	handleKeyAction: (event: KeyboardEvent) => void;
 	selectedRow: string;
-	setSelectedRow: React.Dispatch<React.SetStateAction<string>>;
+	setSelectedRow: React.Dispatch<React.SetStateAction<number>>;
+	setId: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Tables: React.FC<TablesProps> = ({
@@ -31,6 +32,7 @@ const Tables: React.FC<TablesProps> = ({
 	visible,
 	selectedRow,
 	setSelectedRow,
+	setId,
 }) => {
 	return (
 		<StyledTables onKeyDown={(event: any): void => handleKeyAction(event)}>
@@ -42,13 +44,22 @@ const Tables: React.FC<TablesProps> = ({
 				className={"tables"}
 				expandIconColumnIndex={-1}
 				rowKey="name"
-				rowClassName={record => (record.id === selectedRow ? "active" : "")}
-				onRow={(record: any) => ({
+				rowClassName={(record, index) => {
+					if (index === +selectedRow) {
+						setId(record.id as any);
+						return "active";
+					} else return "";
+				}}
+				onRow={(record: any, index) => ({
 					onDoubleClick: () => {
 						history.push(`Пользователи/${record.id}`);
 					},
 					onMouseOver: () => {
-						setSelectedRow(record.id);
+						setSelectedRow(index!);
+						setId(record.id);
+					},
+					onMouseOut: () => {
+						setSelectedRow(-1);
 					},
 				})}
 			/>

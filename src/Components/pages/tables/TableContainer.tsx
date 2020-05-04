@@ -4,19 +4,21 @@ export default (WrappedComponent: React.FC) => {
 	const HocComponent = ({ ...props }) => {
 		const searchBarRef = createRef() as any;
 		const [selectedRow, setSelectedRow] = useState("" as any);
+		const [id, setId] = useState(0);
 		const [visible, setVisible] = useState(false);
 		const handleKeyAction = (event: KeyboardEvent) => {
-			if (event.key === "F9" && selectedRow) {
-				props.history.push(`Пользователи/${selectedRow}`);
-			} else if (event.key === "F4" && selectedRow) {
+			if (event.key === "F9") {
+				props.history.push(`Пользователи/${id}`);
+			} else if (event.key === "F4") {
 				setVisible(true);
 			} else if (event.key === "ArrowDown") {
 				event.preventDefault();
-				if (+selectedRow >= props.data.length) return setSelectedRow(1);
+				if (+selectedRow >= props.data.length - 1) return setSelectedRow(0);
+
 				setSelectedRow(typeof selectedRow === "string" ? 1 : selectedRow + 1);
 			} else if (event.key === "ArrowUp") {
 				event.preventDefault();
-				if (+selectedRow <= 1) return setSelectedRow(props.data.length);
+				if (+selectedRow <= 0) return setSelectedRow(props.data.length - 1);
 				setSelectedRow(
 					typeof selectedRow === "string" ? props.data.length : selectedRow - 1
 				);
@@ -36,6 +38,7 @@ export default (WrappedComponent: React.FC) => {
 			setSelectedRow,
 			handleKeyAction,
 			searchBarRef,
+			setId,
 		};
 		return <WrappedComponent {...props} {...(newProps as any)} />;
 	};
