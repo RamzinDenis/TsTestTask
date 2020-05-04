@@ -10,18 +10,20 @@ export default (WrappedComponent: React.FC<Props>) => {
 
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (event.code === "ArrowDown") {
-				if (currentItem > props.lists!.length) return setCurrentItem(1);
+				event.preventDefault();
+				if (currentItem >= props.lists!.length) return setCurrentItem(1);
 				setCurrentItem(currentItem + 1);
 			} else if (event.key === "ArrowUp") {
-				if (currentItem < 0) return setCurrentItem(props.lists!.length);
+				event.preventDefault();
+				if (currentItem <= 0) return setCurrentItem(props.lists!.length);
 				setCurrentItem(currentItem - 1);
 			} else if (event.key === "Enter" && currentItem) {
 				props.history.push(`${props.match.path}/${currentItem}`);
 			}
+			containerRef.current?.focus();
 		};
 		useEffect(() => {
 			window.addEventListener("keydown", handleKeyDown);
-			containerRef.current?.focus();
 			return () => window.removeEventListener("keydown", handleKeyDown);
 		});
 		const newProps = { currentItem, setCurrentItem, containerRef };

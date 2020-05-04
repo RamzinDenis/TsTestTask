@@ -42,6 +42,7 @@ const Tables: React.FC<TablesProps> = ({
 				className={"tables"}
 				expandIconColumnIndex={-1}
 				rowKey="name"
+				rowClassName={record => (record.id === selectedRow ? "active" : "")}
 				onRow={(record: any) => ({
 					onDoubleClick: () => {
 						history.push(`Пользователи/${record.id}`);

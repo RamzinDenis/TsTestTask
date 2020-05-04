@@ -41,7 +41,11 @@ const UserDescription: React.FC<Props> = ({
 	return (
 		<>
 			<Descriptions
-				title="Информация о пользователе"
+				title={
+					<h3>
+						Информация о пользователе <strong>{name}</strong>
+					</h3>
+				}
 				bordered
 				layout="vertical"
 				size="middle"

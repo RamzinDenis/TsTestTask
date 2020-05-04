@@ -17,4 +17,7 @@ export const StyledTables = styled.div`
 			cursor: pointer;
 		}
 	}
+	.active {
+		background-color: #fafafa;
+	}
 `;
