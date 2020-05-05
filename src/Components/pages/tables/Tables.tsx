@@ -50,27 +50,22 @@ const Tables: React.FC<TablesProps> = ({
 					if (index === +selectedRow) {
 						setId(record.id as any);
 						return "active";
+					} else if (+selectedRow === currentId) {
+						return "active";
 					} else return "";
 				}}
 				onRow={(record: any, index) => ({
 					onDoubleClick: () => {
 						history.push(`Пользователи/${record.id}`);
 					},
-					onMouseOver: () => {
-						setSelectedRow(index!);
+					onClick: () => {
 						setId(record.id);
-					},
-					onMouseOut: () => {
-						setSelectedRow(-1);
+						setSelectedRow(index as number);
 					},
 				})}
 			/>
 
-			<ModalWindow
-				id={currentId as number}
-				visible={visible}
-				setVisible={setVisible}
-			/>
+			<ModalWindow id={currentId} visible={visible} setVisible={setVisible} />
 		</StyledTables>
 	);
 };

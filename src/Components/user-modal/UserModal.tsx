@@ -10,8 +10,8 @@ interface Props extends React.Props<any> {
 	visible: boolean;
 }
 
-const UserModal: React.FC<any> = ({ visible, setVisible, user }) => {
-	if (!visible) return null;
+const UserModal: React.FC<any> = ({ visible, setVisible, user, id }) => {
+	if (!visible || !user) return null;
 	const handleModal = () => setVisible!((prevState: boolean) => false);
 	return (
 		<StyledUserModal>
