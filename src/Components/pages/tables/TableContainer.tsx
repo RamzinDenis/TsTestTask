@@ -27,9 +27,7 @@ export default (WrappedComponent: React.FC) => {
 		useEffect((): void => {
 			props.loadUsers();
 			searchBarRef.current?.focus(); // eslint-disable-next-line
-		}, [searchBarRef]);
-
-		useEffect(() => {}, []);
+		}, [searchBarRef, selectedRow]);
 
 		const newProps = {
 			visible,
