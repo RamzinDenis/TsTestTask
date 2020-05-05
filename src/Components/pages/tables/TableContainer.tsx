@@ -7,9 +7,9 @@ export default (WrappedComponent: React.FC) => {
 		const [currentId, setId] = useState(0);
 		const [visible, setVisible] = useState(false);
 		const handleKeyAction = (event: KeyboardEvent) => {
-			if (event.key === "F9") {
+			if (event.key === "F9" && props.data.length) {
 				props.history.push(`Пользователи/${currentId}`);
-			} else if (event.key === "F4") {
+			} else if (event.key === "F4" && props.data.length) {
 				setVisible(true);
 			} else if (event.key === "ArrowDown") {
 				event.preventDefault();
